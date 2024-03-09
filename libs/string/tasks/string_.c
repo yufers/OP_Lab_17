@@ -68,3 +68,26 @@ char* findNonSpaceReverse(char *rbegin, const char *rend) {
     }
     return rend;
 }
+
+
+//
+char* findSpaceReverse(char *rbegin, const char *rend) {
+    char *ptr = rbegin;
+    bool found = false;
+
+    while (ptr != rend) {
+        int res = isspace(*ptr);
+
+        if (!res) {
+            found = true;
+        } else {
+            if (found) {
+                return ptr;
+            }
+        }
+
+        ptr -= sizeof(char);
+    }
+    return rend;
+}
+
